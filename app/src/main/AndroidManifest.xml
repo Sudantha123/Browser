@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- STREAMING_CHUNK:Configuring app permissions and manifest... -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.lightbrowser.app">
 <!-- අන්තර්ජාල පහසුකම සඳහා -->
 <uses-permission android:name="android.permission.INTERNET" />
-<!-- Background එකේ සින්දු play වීමට Foreground Service අත්‍යවශ්‍ය වේ (Android 14+ සඳහා mediaPlayback type අවශ්‍යයි) -->
+<!-- Background එකේ සින්දු play වීමට Foreground Service අත්‍යවශ්‍ය වේ -->
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 <application
 android:allowBackup="true"
-android:icon="@mipmap/ic_launcher"
+android:icon="@drawable/logo"
 android:label="My Browser"
-android:roundIcon="@mipmap/ic_launcher_round"
 android:supportsRtl="true"
 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 <!-- ප්‍රධාන Activity එක -->
