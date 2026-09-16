@@ -1,0 +1,23 @@
+STREAMING_CHUNK:Configuring GitHub Actions for automated APK building...name: Build Android Appමේකෙන් කියන්නේ main හරි master හරි branch එකට code එක push කරපු ගමන් build වෙන්න පටන් ගන්න කියලයි.on:push:branches: [ "main", "master" ]pull_request:branches: [ "main", "master" ]jobs:build:name: Build APKruns-on: ubuntu-lateststeps:
+  - name: Checkout the code
+    uses: actions/checkout@v4
+
+  - name: Set up JDK 17 (Android Build සඳහා අවශ්‍ය වේ)
+    uses: actions/setup-java@v4
+    with:
+      java-version: '17'
+      distribution: 'temurin'
+      cache: gradle
+
+  - name: Grant execute permission for gradlew
+    run: chmod +x gradlew
+
+  - name: Build Debug APK
+    run: ./gradlew assembleDebug
+
+  # Build වුන APK එක GitHub එකෙන් Download කරගන්න පුළුවන් විදියට Upload කිරීම
+  - name: Upload APK
+    uses: actions/upload-artifact@v4
+    with:
+      name: LightBrowser-APK
+      path: app/build/outputs/apk/debug/app-debug.apk
