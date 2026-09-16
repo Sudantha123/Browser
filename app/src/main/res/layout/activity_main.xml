@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- STREAMING_CHUNK:Designing full-screen UI layout... -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#000000">
+<!-- මුළු තිරයම WebView එකට ලබා දීම, වෙනත් UI Elements නැත (Zero RAM UI) -->
+<WebView
+android:id="@+id/webView"
+android:layout_width="match_parent"
+android:layout_height="match_parent" />
+</RelativeLayout>
