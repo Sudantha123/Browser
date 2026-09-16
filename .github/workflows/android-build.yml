@@ -1,3 +1,5 @@
+# STREAMING_CHUNK:Forcing specific Gradle and JDK versions...
+
 name: Build Android App
 
 on:
@@ -16,16 +18,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      # Phone එකෙන් කරන නිසා gradlew file එක නැති අඩුව පිරවීමට අපි කෙලින්ම gradle setup කරමු
+      # මෙහිදී අපි බලහත්කාරයෙන්ම Gradle 8.4 සංස්කරණය ලබා දෙමු
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.4'
 
-      # ./gradlew වෙනුවට කෙලින්ම gradle භාවිතා කිරීම
       - name: Build Debug APK
         run: gradle assembleDebug
 
